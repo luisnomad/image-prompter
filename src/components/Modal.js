@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Modal = ({ onClose, onSave }) => {
   const [apiKey, setApiKey] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
+
+  useEffect(() => {
+    const envGeminiApiKey = process.env.REACT_APP_GEMINI_API_KEY;
+    const envDeepSeekApiKey = process.env.REACT_APP_DEEPSEEK_API_KEY;
+    if (envGeminiApiKey && selectedModel === 'Gemini') {
+      setApiKey(envGeminiApiKey);
+    } else if (envDeepSeekApiKey && selectedModel === 'DeepSeek') {
+      setApiKey(envDeepSeekApiKey);
+    }
+  }, [selectedModel]);
 
   const handleSave = () => {
     onSave(apiKey, selectedModel);
@@ -20,6 +30,7 @@ const Modal = ({ onClose, onSave }) => {
               type="text"
               value={apiKey}
               onChange={(e) => setApiKey(e.target.value)}
+              disabled={!!process.env.REACT_APP_GEMINI_API_KEY || !!process.env.REACT_APP_DEEPSEEK_API_KEY}
             />
           </label>
         </div>
