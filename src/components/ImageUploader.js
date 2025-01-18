@@ -10,12 +10,12 @@ const ImageUploader = ({ onImageUpload }) => {
   };
 
   return (
-    <div className="image-uploader">
-      <input type="file" accept="image/*" onChange={handleImageChange} />
+    <div className="image-uploader my-4">
+      <input type="file" accept="image/*" onChange={handleImageChange} className="mb-2" />
       {image && (
-        <div>
-          <img src={URL.createObjectURL(image)} alt="Reference" />
-          <p>Reference image</p>
+        <div className="mt-4">
+          <img src={URL.createObjectURL(image)} alt="Reference" className="max-w-full h-auto rounded" />
+          <p className="text-gray-600 mt-2">Reference image</p>
         </div>
       )}
     </div>
