@@ -1,6 +1,19 @@
 # image-prompter
 Small application to create text2image or text2video prompts
 
+## Requirements
+- Node.js 
+- npm
+- A valid API key for either Google Gemini or DeepSeek
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/image-prompter.git
+cd image-prompter
+```
+
 ## Detailed Description
 The image-prompter application allows users to create text-to-image or text-to-video prompts. Users can input a description and optionally upload an image as a reference. The app supports two models: Google Gemini API and DeepSeek v3. Users can select the model and enter the API key through a modal. The app stores the API key and selected model in local storage. The app displays the generated prompt and allows users to copy it to the clipboard. The app uses components like `TextBox`, `ImageUploader`, `QueryButton`, `CopyButton`, and `Modal`. The app makes API requests using functions from `src/api.js`.
 

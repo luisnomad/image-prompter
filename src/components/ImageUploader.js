@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ImageUploader = ({ onImageUpload }) => {
-  const [image, setImage] = useState(null);
-
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImage(file);
     onImageUpload(file);
   };
 
   return (
-    <div className="image-uploader my-4">
-      <input type="file" accept="image/*" onChange={handleImageChange} className="mb-2" />
-      {image && (
-        <div className="mt-4">
-          <img src={URL.createObjectURL(image)} alt="Reference" className="max-w-full h-auto rounded" />
-          <p className="text-gray-600 mt-2">Reference image</p>
-        </div>
-      )}
+    <div className="image-uploader">
+      <label className="block">
+        <span className="sr-only">Choose an image</span>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+        />
+      </label>
     </div>
   );
 };

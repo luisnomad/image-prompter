@@ -22,6 +22,11 @@ Your task is to generate a SINGLE, detailed, and creative prompt that can be use
 };
 
 const sendQueryToGemini = async (apiKey, description, image) => {
+
+  if (!apiKey) { 
+    throw new Error('API Key is required');
+  }
+
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ 
