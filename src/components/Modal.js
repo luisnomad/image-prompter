@@ -5,8 +5,8 @@ const Modal = ({ onClose, onSave }) => {
   const [selectedModel, setSelectedModel] = useState('');
 
   useEffect(() => {
-    const envGeminiApiKey = process.env.REACT_APP_GEMINI_API_KEY;
-    const envDeepSeekApiKey = process.env.REACT_APP_DEEPSEEK_API_KEY;
+    const envGeminiApiKey = process.env.REACT_APP_GEMINI_API_KEY || '';
+    const envDeepSeekApiKey = process.env.REACT_APP_DEEPSEEK_API_KEY || '';
     if (envGeminiApiKey && selectedModel === 'Gemini') {
       setApiKey(envGeminiApiKey);
     } else if (envDeepSeekApiKey && selectedModel === 'DeepSeek') {
