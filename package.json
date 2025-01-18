@@ -1,0 +1,19 @@
+{
+  "name": "image-prompter",
+  "version": "1.0.0",
+  "description": "Small application to create text2image or text2video prompts",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
