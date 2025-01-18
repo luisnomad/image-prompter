@@ -38,29 +38,31 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <TextBox value={description} onChange={setDescription} />
-      <ImageUploader onImageUpload={setImage} />
-      {image && <img src={URL.createObjectURL(image)} alt="Reference" />}
-      <QueryButton onClick={handleQuery} />
-      {response && (
-        <>
-          <div className="response">{response}</div>
-          <CopyButton text={response} />
-        </>
-      )}
-      {showModal && (
-        <Modal
-          onClose={() => setShowModal(false)}
-          onSave={(key, model) => {
-            setApiKey(key);
-            setSelectedModel(model);
-            localStorage.setItem('apiKey', key);
-            localStorage.setItem('selectedModel', model);
-            setShowModal(false);
-          }}
-        />
-      )}
+    <div className="app container mx-auto p-4">
+      <div className="flex flex-col items-center">
+        <TextBox value={description} onChange={setDescription} />
+        <ImageUploader onImageUpload={setImage} />
+        {image && <img src={URL.createObjectURL(image)} alt="Reference" className="my-4" />}
+        <QueryButton onClick={handleQuery} />
+        {response && (
+          <>
+            <div className="response mt-4 p-4 bg-gray-100 rounded">{response}</div>
+            <CopyButton text={response} />
+          </>
+        )}
+        {showModal && (
+          <Modal
+            onClose={() => setShowModal(false)}
+            onSave={(key, model) => {
+              setApiKey(key);
+              setSelectedModel(model);
+              localStorage.setItem('apiKey', key);
+              localStorage.setItem('selectedModel', model);
+              setShowModal(false);
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 };
